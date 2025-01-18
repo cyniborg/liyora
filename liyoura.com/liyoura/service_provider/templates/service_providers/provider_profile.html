@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Service Providers</title>
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="p-10">
+    <div>
+        <div class="px-4 sm:px-0">
+            <h3 class="text-base/7 font-semibold text-gray-900">{{ provider.user.first_name }} {{ provider.user.last_name }} - Profile</h3>
+            <p class="mt-1 max-w-2xl text-sm/6 text-gray-500">{{ provider.short_description }}</p>
+        </div>
+        <div class="mt-6 border-t border-gray-100">
+        <dl class="divide-y divide-gray-100">
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">First name</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">{{ provider.user.first_name }}</dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">Last name</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">{{ provider.user.last_name }}</dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">Bio</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {% if provider.bio|length > 0 %}
+                        {{ provider.bio }}
+                    {% else %}
+                        Not available
+                    {% endif %}
+                </dd>
+                </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">Work email</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"><a class="text-blue-500" href="mailto:{{ provider.work_email }}">{{ provider.work_email }}</a> </dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">Work phone</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    <a class="text-blue-500" href="tel:{{ provider.work_phone }}">{{ provider.work_phone }}</a>
+                </dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">LinkedIn</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {% if provider.linkedin|length > 0 %}
+                        <a class="text-blue-500" href="{{ provider.linkedin }}" target="_blank">{{ provider.linkedin }}</a>
+                    {% else %}
+                        Not available
+                    {% endif %}                    
+                </dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">Website</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {% if provider.website|length > 0 %}
+                        <a class="text-blue-500" href="{{ provider.website }}" target="_blank">{{ provider.website }}</a>
+                    {% else %}
+                        Not available
+                    {% endif %}      
+                </dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">Instagram</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {% if provider.instagram|length > 0 %}
+                        <a class="text-blue-500" href="{{ provider.instagram }}" target="_blank">{{ provider.instagram }}</a>
+                    {% else %}
+                        Not available
+                    {% endif %}
+                </dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">YouTube</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {% if provider.linkedin|length > 0 %}
+                    <a class="text-blue-500" href="{{ provider.youtube }}" target="_blank">{{ provider.youtube }}</a>
+                    {% else %}
+                        Not available
+                    {% endif %}     
+                </dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">TikTok</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {% if provider.tiktok|length > 0 %}
+                        <a class="text-blue-500" href="{{ provider.tiktok }}" target="_blank">{{ provider.tiktok }}</a>
+                    {% else %}
+                        Not available
+                    {% endif %}
+                </dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">X</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {% if provider.x|length > 0 %}
+                        <a class="text-blue-500" href="{{ provider.x }}" target="_blank">{{ provider.x }}</a>
+                    {% else %}
+                        Not available
+                    {% endif %}
+                </dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">Website</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {% if provider.website|length > 0 %}
+                        <a class="text-blue-500" href="{{ provider.website }}" target="_blank">{{ provider.website }}</a>
+                    {% else %}
+                        Not available
+                    {% endif %}
+                </dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm/6 font-medium text-gray-900">Attachments: (discuss if needed?)</dt>
+            <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                <ul role="list" class="divide-y divide-gray-100 rounded-md border border-gray-200">
+                <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6">
+                    <div class="flex w-0 flex-1 items-center">
+                    <svg class="size-5 shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                        <path fill-rule="evenodd" d="M15.621 4.379a3 3 0 0 0-4.242 0l-7 7a3 3 0 0 0 4.241 4.243h.001l.497-.5a.75.75 0 0 1 1.064 1.057l-.498.501-.002.002a4.5 4.5 0 0 1-6.364-6.364l7-7a4.5 4.5 0 0 1 6.368 6.36l-3.455 3.553A2.625 2.625 0 1 1 9.52 9.52l3.45-3.451a.75.75 0 1 1 1.061 1.06l-3.45 3.451a1.125 1.125 0 0 0 1.587 1.595l3.454-3.553a3 3 0 0 0 0-4.242Z" clip-rule="evenodd" />
+                    </svg>
+                    <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                        <span class="truncate font-medium">resume_back_end_developer.pdf</span>
+                        <span class="shrink-0 text-gray-400">2.4mb</span>
+                    </div>
+                    </div>
+                    <div class="ml-4 shrink-0">
+                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
+                    </div>
+                </li>
+                <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6">
+                    <div class="flex w-0 flex-1 items-center">
+                    <svg class="size-5 shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                        <path fill-rule="evenodd" d="M15.621 4.379a3 3 0 0 0-4.242 0l-7 7a3 3 0 0 0 4.241 4.243h.001l.497-.5a.75.75 0 0 1 1.064 1.057l-.498.501-.002.002a4.5 4.5 0 0 1-6.364-6.364l7-7a4.5 4.5 0 0 1 6.368 6.36l-3.455 3.553A2.625 2.625 0 1 1 9.52 9.52l3.45-3.451a.75.75 0 1 1 1.061 1.06l-3.45 3.451a1.125 1.125 0 0 0 1.587 1.595l3.454-3.553a3 3 0 0 0 0-4.242Z" clip-rule="evenodd" />
+                    </svg>
+                    <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                        <span class="truncate font-medium">coverletter_back_end_developer.pdf</span>
+                        <span class="shrink-0 text-gray-400">4.5mb</span>
+                    </div>
+                    </div>
+                    <div class="ml-4 shrink-0">
+                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
+                    </div>
+                </li>
+                </ul>
+            </dd>
+            </div>
+        </dl>
+        </div>
+    </div>
+  </body>
+</html>
