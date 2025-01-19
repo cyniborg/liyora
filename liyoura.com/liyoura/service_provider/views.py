@@ -13,4 +13,10 @@ def provider_profile(request, id):
 
 def provider_profile_edit(request, id):
     # This should only be based on the logged in user id
-    pass
+    psychologist = get_object_or_404(Service_Providers, id=id)
+    return render(request, 'service_providers/provider_profile_edit.html', {'provider': psychologist})
+
+def provider_profile_update(request, id):
+    # psychologist = get_object_or_404(Service_Providers, id=id)
+    # return render(request, 'service_providers/provider_profile_edit.html', {'provider': psychologist})
+    print(request.POST)
